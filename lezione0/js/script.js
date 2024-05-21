@@ -117,3 +117,6 @@ if (typeof miaNuovaVar != "string") {
 } else {
     console.log("la variabile è una stringa");
 }
+
+let mioNome2 = prompt("Come ti chiami ?");
+console.log(mioNome2);
