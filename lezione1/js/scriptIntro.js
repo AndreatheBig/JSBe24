@@ -6,10 +6,12 @@ function miaFunzione() {
 }
 
 
-
 document.getElementById("btn").addEventListener("click", function () {
     miaFunzione();
     console.log("L'utente sta cliccando in questo esatto punto della pagina:");
     console.log(event.pageX);
     console.log(event.pageY);
 });
+
+
+
