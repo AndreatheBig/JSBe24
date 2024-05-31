@@ -1,0 +1,27 @@
+h1 {
+    font-size: 50px;
+    font-weight: bolder;
+    line-height: 100px;
+    color: rgba(108, 32, 180, 0.542);
+}
+
+#username{
+    border: 2px solid red ;
+}
+
+
+.titolo{
+    color: blue;
+}
+
+.mt0{
+    margin-top: 0px;
+}
+
+.txtBlue{
+    color: blue;
+}
+
+.bgRed{
+    background-color: red;
+}
