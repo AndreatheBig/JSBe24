@@ -1,23 +1,25 @@
-class Utente {
-    constructor(nome, cognome, eta, email, password, termCond) {
-        this.nome = nome;
-        this.cognome = cognome;
-        this.email = email;
-        this.eta = eta;
-        this.password = password;
-        this.termCond = termCond;
-    }
-}
+
 //Sintassi CSS
 //#valore ==> ID di un elemento html
 //.valore ==> Class di un elemento
 
-
 let formReg = document.querySelector("#formReg");
 let demo = document.querySelector("#demo");
 
+
 function validate(event) {
+    //Pulisce il div demo
     demo.innerHTML = "";
+
+    //Pulisco i bordi dei campi input
+    //ATT: quando utilizzo il querySelectorAll salvo tutto in una nodelist
+    let inputsColorati = document.querySelectorAll("input.borderRed");
+    inputsColorati.forEach(inputColorato => {
+        // inputColorato.removeAttribute("class");
+        inputColorato.classList.remove("borderRed");
+    })
+
+    console.log(inputsColorati);
 
     //Qui raccolgo tutti i valori dei campi input
     let nome = String(document.querySelector("#nome").value);
@@ -47,6 +49,8 @@ function validateName(nome, event) {
         console.log(event);
         event.preventDefault();
         event.stopImmediatePropagation();
+    } else {
+        localStorage.setItem("nomeUser", nome);
     }
 }
 
@@ -56,6 +60,8 @@ function validateCognome(cognome, event) {
         document.querySelector("#cognome").setAttribute("class", "borderRed");
         event.preventDefault();
         event.stopImmediatePropagation();
+    } else {
+        localStorage.setItem("cognomeUser", cognome);
     }
 }
 
@@ -66,6 +72,8 @@ function validateEta(eta, event) {
         document.querySelector("#eta").setAttribute("class", "borderRed");
         event.preventDefault();
         event.stopImmediatePropagation();
+    } else {
+        localStorage.setItem("etaUser", eta)
     }
 }
 
@@ -76,6 +84,8 @@ function validateEmail(email, event) {
         document.querySelector("#email").setAttribute("class", "borderRed");
         event.preventDefault();
         event.stopImmediatePropagation();
+    } else {
+        localStorage.setItem("emailUser", email);
     }
 }
 
@@ -86,8 +96,34 @@ function validatePassword(password, event) {
         document.querySelector("#password").setAttribute("class", "borderRed");
         event.preventDefault();
         event.stopImmediatePropagation();
+    } else {
+        localStorage.setItem("passwordUser", password);
     }
 }
 
 
 formReg.addEventListener("submit", validate);
+
+//Adesso voglio recuperare direttamente i campi input
+let elNome = document.querySelector("#nome");
+let elCognome = document.querySelector("#cognome");
+let elEta = document.querySelector("#eta");
+let elEmail = document.querySelector("#email");
+let elPass = document.querySelector("#password");
+
+elNome.addEventListener("blur", function () {
+    validateName(this.value, event);
+});
+elCognome.addEventListener("blur", function () {
+    validateCognome(this.value, event);
+});
+elEta.addEventListener("blur", function () {
+    validateEta(this.value, event);
+});
+elPass.addEventListener("blur", function () {
+    validatePassword(this.value, event);
+});
+elEmail.addEventListener("blur", function () {
+    validateEmail(this.value, event);
+});
+

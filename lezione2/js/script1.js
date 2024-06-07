@@ -37,7 +37,6 @@ function validate() {
         console.log(utente);
         registraUtente(utente);
     }
-
 }
 
 /**
