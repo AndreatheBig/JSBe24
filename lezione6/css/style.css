@@ -1,0 +1,22 @@
+.container{
+    display: block;
+    margin: 0;
+    width: 100%;
+    height: auto;
+  
+}
+
+.card{
+    display: block;
+    border: 2px solid black;
+    float: left;
+    width: 16%;
+    height: auto;
+    margin: 1.8%;
+}
+
+.dimImg{
+    width: 100%;
+
+}
+
